@@ -8,14 +8,10 @@ export function TransferTon() {
   const { sender, connected } = useTonConnect();
 
   const [tonAmount, setTonAmount] = useState("0.01");
-  const [tonRecipient, setTonRecipient] = useState(
-    "EQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM9c"
-  );
 
   return (
-    <Card>
       <FlexBoxCol>
-        <h3>Transfer TON</h3>
+
         <FlexBoxRow>
           <label>Amount </label>
           <Input
@@ -25,20 +21,20 @@ export function TransferTon() {
             onChange={(e) => setTonAmount(e.target.value)}
           ></Input>
         </FlexBoxRow>
-        <FlexBoxRow>
+{/*        <FlexBoxRow>
           <label>To </label>
           <Input
             style={{ marginRight: 8 }}
             value={tonRecipient}
             onChange={(e) => setTonRecipient(e.target.value)}
           ></Input>
-        </FlexBoxRow>
+        </FlexBoxRow>*/}
         <Button
           disabled={!connected}
           style={{ marginTop: 18 }}
           onClick={async () => {
             sender.send({
-              to: Address.parse(tonRecipient),
+              to: Address.parse("0QClJ-zo8bI2P-svR7Gpc-i8o6TWnARnEg7yQXZjMQXf2ROv"),
               value: toNano(tonAmount),
             });
           }}
@@ -46,6 +42,5 @@ export function TransferTon() {
           Transfer
         </Button>
       </FlexBoxCol>
-    </Card>
   );
 }
