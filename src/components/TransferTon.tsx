@@ -3,9 +3,10 @@ import styled from "styled-components";
 import { Address, toNano } from "ton";
 import { useTonConnect } from "../hooks/useTonConnect";
 import { Card, FlexBoxCol, FlexBoxRow, Button, Input } from "./styled/styled";
+import {CHAIN} from "@tonconnect/protocol";
 
 export function TransferTon() {
-  const { sender, connected } = useTonConnect();
+  const { sender, connected, network } = useTonConnect();
 
   const [tonAmount, setTonAmount] = useState("0.01");
 
@@ -34,7 +35,9 @@ export function TransferTon() {
           style={{ marginTop: 18 }}
           onClick={async () => {
             sender.send({
-              to: Address.parse("0QClJ-zo8bI2P-svR7Gpc-i8o6TWnARnEg7yQXZjMQXf2ROv"),
+              to: Address.parse(network === CHAIN.MAINNET
+                  ? "UQDiTm-jnqNF3JuRtawetXQPsqwL20MHLPIKUqLDIyAjx00m"
+                  : "0QClJ-zo8bI2P-svR7Gpc-i8o6TWnARnEg7yQXZjMQXf2ROv"),
               value: toNano(tonAmount),
             });
           }}

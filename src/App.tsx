@@ -85,7 +85,7 @@ function App() {
                                                 token: token
                                             }
                                             const a = JSON.stringify(b)
-                                            fetch('http://localhost:8300/checkLogin', {
+                                            fetch('https://test-bot-telegram-ton-0c474bddf6fc.herokuapp.com/checkLogin', {
                                                 mode: "cors",
                                                 method: 'POST', // или 'PUT'
                                                 body: a, // данные могут быть 'строкой' или {объектом}!
