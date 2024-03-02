@@ -1,8 +1,7 @@
 import { useState } from "react";
-import styled from "styled-components";
 import { Address, toNano } from "ton";
 import { useTonConnect } from "../hooks/useTonConnect";
-import { Card, FlexBoxCol, FlexBoxRow, Button, Input } from "./styled/styled";
+import { FlexBoxCol, FlexBoxRow, Button, Input } from "./styled/styled";
 import {CHAIN} from "@tonconnect/protocol";
 
 export function TransferTon() {
@@ -37,7 +36,7 @@ export function TransferTon() {
             sender.send({
               to: Address.parse(network === CHAIN.MAINNET
                   ? "UQDiTm-jnqNF3JuRtawetXQPsqwL20MHLPIKUqLDIyAjx00m"
-                  : "0QClJ-zo8bI2P-svR7Gpc-i8o6TWnARnEg7yQXZjMQXf2ROv"),
+                  : "0QDs0-tS6jquWmZM6qJsS6ZEsBE-FOr2qTjaZS631N-rsqp2"),
               value: toNano(tonAmount),
             });
           }}
